@@ -1,4 +1,4 @@
-package br.com.jujubaprojects.authapi.domain.User;
+package br.com.jujubaprojects.authapi.enums;
 
 public enum UserRole {
     ADMIN("admin"),

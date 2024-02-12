@@ -9,6 +9,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import br.com.jujubaprojects.authapi.enums.UserRole;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,7 +25,9 @@ import lombok.Setter;
 @Getter@Setter
 public class User implements UserDetails{
     
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private String login;
     private String password;
     private UserRole role;
@@ -53,11 +58,6 @@ public class User implements UserDetails{
     @Override
     public boolean isEnabled() {
         return true;
-    }
-    @Override
-    public String getPassword() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPassword'");
     }
 
 }
