@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import br.com.jujubaprojects.authapi.Repositories.UserRepository;
-import br.com.jujubaprojects.authapi.Services.TokenService;
+import br.com.jujubaprojects.authapi.Services.security.TokenService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

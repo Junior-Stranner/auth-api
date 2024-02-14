@@ -1,4 +1,4 @@
-package br.com.jujubaprojects.authapi.Services;
+package br.com.jujubaprojects.authapi.Services.security;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -18,7 +18,6 @@ import br.com.jujubaprojects.authapi.Model.User.User;
 public class TokenService {
 
     @Value("${api.security.token.secret}")
-    
     private String secret;
 
     public String generateToken(User user){
