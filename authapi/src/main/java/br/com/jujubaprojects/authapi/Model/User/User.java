@@ -32,6 +32,7 @@ public class User implements UserDetails{
     private String password;
     private UserRole role;
 
+    public User(String login, String password, UserRole userRole){}
 
 
     @Override
