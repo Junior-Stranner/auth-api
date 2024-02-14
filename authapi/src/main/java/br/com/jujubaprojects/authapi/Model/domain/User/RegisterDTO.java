@@ -1,4 +1,4 @@
-package br.com.jujubaprojects.authapi.Model.domain;
+package br.com.jujubaprojects.authapi.Model.domain.User;
 
 import br.com.jujubaprojects.authapi.enums.UserRole;
 
