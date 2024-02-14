@@ -29,17 +29,17 @@ public class AuthenticationController {
     private TokenService tokenService;
 
     @PostMapping("/login")
-    public ResponseEntity login(@RequestBody @Valid AuthenticationDTO authDTO){
+    public ResponseEntity<?> login(@RequestBody @Valid AuthenticationDTO authDTO){
         var usernamePassword = new UsernamePasswordAuthenticationToken(authDTO.login(), authDTO.password());
         var auth = this.authenticationManager.authenticate(usernamePassword);
 
         var token = tokenService.generateToken((User) auth.getPrincipal());
 
         return ResponseEntity.ok(new LoginResponseDTO(token));  
-  }
+      }
 
     @PostMapping("/register")
-    public ResponseEntity register(@RequestBody @Valid RegisterDTO registerDTO){
+    public ResponseEntity<?> register(@RequestBody @Valid RegisterDTO registerDTO){
         if(this.userRepository.findByLogin(registerDTO.login()) != null) return ResponseEntity.badRequest().build();
 
         String encryptedPassword = new BCryptPasswordEncoder().encode(registerDTO.password());

@@ -1,4 +1,4 @@
-package br.com.jujubaprojects.authapi.domain.User;
+package br.com.jujubaprojects.authapi.Model.User;
 
 import java.util.Collection;
 import java.util.List;
