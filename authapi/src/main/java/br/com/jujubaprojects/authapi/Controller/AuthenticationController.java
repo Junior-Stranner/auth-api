@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.jujubaprojects.authapi.Model.User.User;
 import br.com.jujubaprojects.authapi.Model.domain.User.AuthenticationDTO;
 import br.com.jujubaprojects.authapi.Model.domain.User.LoginResponseDTO;
 import br.com.jujubaprojects.authapi.Model.domain.User.RegisterDTO;
+import br.com.jujubaprojects.authapi.Model.domain.User.User;
 import br.com.jujubaprojects.authapi.Repositories.UserRepository;
 import jakarta.validation.Valid;
 
