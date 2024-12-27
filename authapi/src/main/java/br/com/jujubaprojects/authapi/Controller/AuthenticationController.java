@@ -19,7 +19,7 @@ import br.com.jujubaprojects.authapi.Repositories.UserRepository;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("auth")
 public class AuthenticationController {
 
     @Autowired

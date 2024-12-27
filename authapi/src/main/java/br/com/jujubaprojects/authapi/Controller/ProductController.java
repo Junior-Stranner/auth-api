@@ -17,7 +17,7 @@ import br.com.jujubaprojects.authapi.Repositories.ProductReporitory;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("product")
 public class ProductController {
     
     @Autowired

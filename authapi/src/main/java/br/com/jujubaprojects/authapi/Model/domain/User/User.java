@@ -3,26 +3,19 @@ package br.com.jujubaprojects.authapi.Model.domain.User;
 import java.util.Collection;
 import java.util.List;
 
+import jakarta.persistence.*;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import br.com.jujubaprojects.authapi.enums.UserRole;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Table(name = "users")
 @Entity(name = "users")
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter@Setter
+@EqualsAndHashCode(of = "id")
 public class User implements UserDetails{
     
     @Id
@@ -30,16 +23,21 @@ public class User implements UserDetails{
     private long id;
     private String login;
     private String password;
+    @Enumerated(EnumType.STRING)
     private UserRole role;
 
-    public User(String login, String password, UserRole userRole){}
-
+    public User(String login, String password, UserRole role){
+        this.login = login;
+        this.password = password;
+        this.role = role;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if(this.role == UserRole.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
         else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
+
     @Override
     public String getUsername() {
        return login;

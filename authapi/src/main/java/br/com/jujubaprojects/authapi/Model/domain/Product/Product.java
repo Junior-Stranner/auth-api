@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -23,7 +25,9 @@ public class Product {
 
     private String name;
 
-    private long price;
+    @NotNull
+    @Positive
+    private Long price;
 
     public Product(ProductRequestDTO productRdto){
         this.price = productRdto.price();
